@@ -11,7 +11,6 @@ class LRUCache:
     def __init__(self, limit=10):
         self.limit = limit
         self.storage = {}
-        self.dll = DoublyLinkedList()
         self.length = 0
 
     def __str__(self):
@@ -56,6 +55,9 @@ class LRUCache:
             # insert new element at the front
 
         else:
+            self.length +=1
+            new_node = DoublyLinkedList(value)
+            new_node.next = new_node.prev 
             self.storage.update({key: value})
             # shift all elements to the right
             # insert new element at the front
