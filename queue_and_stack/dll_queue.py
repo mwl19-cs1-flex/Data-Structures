@@ -17,4 +17,4 @@ class Queue:
         return self.storage.remove_from_head()
 
     def len(self):
-        return self.storage.length
+        return len(self.storage)
