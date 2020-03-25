@@ -31,3 +31,16 @@ list1.push(3)
 list1.push(1)
 list1.push(7) 
 list1.printMiddle()
+
+# hackerrank problem 
+# count = 0
+
+# current = head
+
+# while count < 1002:
+#     count += 1
+#     if current.next != None:
+#         current = current.next
+#     else: 
+#         return False
+# return True 
