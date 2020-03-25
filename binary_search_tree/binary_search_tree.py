@@ -53,7 +53,12 @@ class BinarySearchTree:
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
     def for_each(self, cb):
-        pass
+        if not self.left and not self.right:
+            cb(self.value)
+        else:
+            self.left.for_each(cb)
+            self.right.for_each(cb)
+
 
     # DAY 2 Project -----------------------
 
