@@ -49,15 +49,16 @@ class BinarySearchTree:
         else:
             return self.right.get_max()
 
-
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
     def for_each(self, cb):
-        if not self.left and not self.right:
-            cb(self.value)
-        else:
+        if self.left is not None:
             self.left.for_each(cb)
+        if self.right is not None:
             self.right.for_each(cb)
+        cb(self.value)
+        # Want to address both sides that's why we use if and not elif
+
 
 
     # DAY 2 Project -----------------------
