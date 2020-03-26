@@ -12,24 +12,40 @@ class BinarySearchTree:
 
     # Insert the given value into the tree
     def insert(self, value):
-        if value < self.value and self.left == None:
-            self.left = BinarySearchTree(value)
-            # self.value.left.insert(value)
-            # self.left = BinarySearchTree(value)
-        elif value >= self.value and self.right == None:
-            self.right = BinarySearchTree(value)
-            # self.value.right.insert(value)
-            # self.right = BinarySearchTree(value)
-        elif value < self.value and self.left != None:
-            self.left.insert(value)
-        elif value >= self.value and self.right != None:
-            self.right.insert(value)
+        # if new < node.value
+        if value < self.value:
+            # if left doesnt exist
+            if self.left is None:
+                # create left
+                self.left = BinarySearchTree(value)
+            else:
+                self.left.insert(value)
+        else:
+        # if value >= self.value: can do this
+            if self.right is None:
+                self.right = BinarySearchTree(value)
+            else:
+                self.right.insert(value)
 
-    # Return True if the tree contains the value
-    # False if it does not
+    #     MY WORK (PASSES TESTS)
+    #     if value < self.value and self.left == None:
+    #         self.left = BinarySearchTree(value)
+    #         # self.value.left.insert(value)
+    #         # self.left = BinarySearchTree(value)
+    #     elif value >= self.value and self.right == None:
+    #         self.right = BinarySearchTree(value)
+    #         # self.value.right.insert(value)
+    #         # self.right = BinarySearchTree(value)
+    #     elif value < self.value and self.left != None:
+    #         self.left.insert(value)
+    #     elif value >= self.value and self.right != None:
+    #         self.right.insert(value)
 
-    # WHY DO WE NEED RETURN?!
+    
+    # # Return True if the tree contains the value
+    # # False if it does not
     def contains(self, target):
+    # WHY DO WE NEED RETURN?!
         if target == self.value:
             return True
         else:
