@@ -41,7 +41,7 @@ class BinarySearchTree:
     #     elif value >= self.value and self.right != None:
     #         self.right.insert(value)
 
-    
+
     # # Return True if the tree contains the value
     # # False if it does not
     def contains(self, target):
@@ -50,7 +50,7 @@ class BinarySearchTree:
     # To get that base case from our recursion, we need to return the results of that recursion
     # We need a return because we're finding something, not doing something
         if target == self.value:
-            return True 
+            return True
         if target < self.value:
             if self.left is None:
                 return False
@@ -59,7 +59,7 @@ class BinarySearchTree:
         if target >= self.value:
             if self.right is None:
                 return False
-            else: 
+            else:
                 return self.right.contains(target)
 
 
@@ -126,16 +126,29 @@ class BinarySearchTree:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass
+        print(node)
+        
+        if self.left:
+            self.left.in_order_print(self.left)
+        if self.right:
+            self.right.in_order_print(self.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        pass
+        queue = Queue()
+        while queue.len() > 0:
+            head = queue.enqueue(node)
+            queue.dequeue()
+            print(head)
+            if self.left:
+                head = queue.enqueue(self.left)
+            if self.right:
+                head = queue.enqueue(self.right)
         # queue the node value
         # if there is a left, queue the left value
         # if there is a right, queue the right value
-        # dequeue the node value 
+        # dequeue the node value
         # iterate from the front of the line
 
         # Iterative bft
@@ -146,7 +159,7 @@ class BinarySearchTree:
         # pop node off queue
         # print node
         # Add children of node to queue
-    
+
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
@@ -159,7 +172,7 @@ class BinarySearchTree:
         # node = head of stack
         # pop off node off the stack
         # do the thing of node (print)
-        # add children 
+        # add children
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
