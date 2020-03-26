@@ -46,6 +46,9 @@ class BinarySearchTree:
     # # False if it does not
     def contains(self, target):
     # WHY DO WE NEED RETURN?!
+    # We need a return because we have a return in our base case
+    # To get that base case from our recursion, we need to return the results of that recursion
+    # We need a return because we're finding something, not doing something
         if target == self.value:
             return True 
         if target < self.value:
@@ -77,10 +80,24 @@ class BinarySearchTree:
 
     # Return the maximum value found in the tree
     def get_max(self):
-        if not self.right:
-            return self.value
-        else:
+        # if there's a right:
+        # get max on right
+        # else
+        # return node value
+
+        # We need a return because we have a return in our base case
+        # To get that base case from our recursion, we need to return the results of that recursion
+        # We need a return because we're finding something, not doing something
+        if self.right:
             return self.right.get_max()
+        else:
+            return self.value
+
+        # MY WORK (PASSES TESTS)
+        # if not self.right:
+        #     return self.value
+        # else:
+        #     return self.right.get_max()
 
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
