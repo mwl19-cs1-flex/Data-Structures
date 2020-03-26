@@ -12,38 +12,166 @@ class BinarySearchTree:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        # if new < node.value
+        if value < self.value:
+            # if left doesnt exist
+            if self.left is None:
+                # create left
+                self.left = BinarySearchTree(value)
+            else:
+                self.left.insert(value)
+        else:
+        # if value >= self.value: can do this
+            if self.right is None:
+                self.right = BinarySearchTree(value)
+            else:
+                self.right.insert(value)
 
-    # Return True if the tree contains the value
-    # False if it does not
+    #     MY WORK (PASSES TESTS)
+    #     if value < self.value and self.left == None:
+    #         self.left = BinarySearchTree(value)
+    #         # self.value.left.insert(value)
+    #         # self.left = BinarySearchTree(value)
+    #     elif value >= self.value and self.right == None:
+    #         self.right = BinarySearchTree(value)
+    #         # self.value.right.insert(value)
+    #         # self.right = BinarySearchTree(value)
+    #     elif value < self.value and self.left != None:
+    #         self.left.insert(value)
+    #     elif value >= self.value and self.right != None:
+    #         self.right.insert(value)
+
+
+    # # Return True if the tree contains the value
+    # # False if it does not
     def contains(self, target):
-        pass
+    # WHY DO WE NEED RETURN?!
+    # We need a return because we have a return in our base case
+    # To get that base case from our recursion, we need to return the results of that recursion
+    # We need a return because we're finding something, not doing something
+        if target == self.value:
+            return True
+        if target < self.value:
+            if self.left is None:
+                return False
+            else:
+                return self.left.contains(target)
+        if target >= self.value:
+            if self.right is None:
+                return False
+            else:
+                return self.right.contains(target)
+
+
+
+
+        # MY WORK (PASSES TESTS)
+        # if target == self.value:
+        #     return True
+        # else:
+        #     if target < self.value and self.left == None:
+        #         return False
+        #     elif target >= self.value and self.right == None:
+        #         return False
+        #     elif target < self.value and self.left != None:
+        #         return self.left.contains(target)
+        #     elif target >= self.value and self.left != None:
+        #         return self.right.contains(target)
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        # if there's a right:
+        # get max on right
+        # else
+        # return node value
+
+        # We need a return because we have a return in our base case
+        # To get that base case from our recursion, we need to return the results of that recursion
+        # We need a return because we're finding something, not doing something
+        if self.right:
+            return self.right.get_max()
+        else:
+            return self.value
+
+        # MY WORK (PASSES TESTS)
+        # if not self.right:
+        #     return self.value
+        # else:
+        #     return self.right.get_max()
 
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
     def for_each(self, cb):
-        pass
+        cb(self.value)
+
+        if self.left:
+            self.left.for_each(cb)
+        if self.right:
+            self.right.for_each(cb)
+
+        # MY WORK (PASSES TESTS)
+        # if self.left is not None:
+        #     self.left.for_each(cb)
+        # if self.right is not None:
+        #     self.right.for_each(cb)
+        # cb(self.value)
+        # Want to address both sides that's why we use if and not elif
+
 
     # DAY 2 Project -----------------------
+
+    # Breadth First: Queue
+    # Depth First: Stack
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass
+        if self.left is not None:
+            self.left.in_order_print(self.left)
+        print(node.value)
+        if self.right is not None:
+            self.right.in_order_print(self.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        pass
+        queue = Queue()
+        while queue.len() > 0:
+            head = queue.enqueue(node)
+            queue.dequeue()
+            print(head)
+            if self.left:
+                head = queue.enqueue(self.left)
+            if self.right:
+                head = queue.enqueue(self.right)
+        # queue the node value
+        # if there is a left, queue the left value
+        # if there is a right, queue the right value
+        # dequeue the node value
+        # iterate from the front of the line
+
+        # Iterative bft
+        # Create a queue
+        # Add root to queue
+        # while queue length > 0
+        # node = head of queue
+        # pop node off queue
+        # print node
+        # Add children of node to queue
+
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
         pass
+        # iterative dft
+        # create stack
+        # add root to stack
+        # while stack is not empty
+        # node = head of stack
+        # pop off node off the stack
+        # do the thing of node (print)
+        # add children
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
