@@ -118,8 +118,10 @@ class BinarySearchTree:
         # Want to address both sides that's why we use if and not elif
 
 
-
     # DAY 2 Project -----------------------
+
+    # Breadth First: Queue
+    # Depth First: Stack
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
@@ -130,11 +132,34 @@ class BinarySearchTree:
     # in an iterative breadth first traversal
     def bft_print(self, node):
         pass
+        # queue the node value
+        # if there is a left, queue the left value
+        # if there is a right, queue the right value
+        # dequeue the node value 
+        # iterate from the front of the line
+
+        # Iterative bft
+        # Create a queue
+        # Add root to queue
+        # while queue length > 0
+        # node = head of queue
+        # pop node off queue
+        # print node
+        # Add children of node to queue
+    
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
         pass
+        # iterative dft
+        # create stack
+        # add root to stack
+        # while stack is not empty
+        # node = head of stack
+        # pop off node off the stack
+        # do the thing of node (print)
+        # add children 
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
