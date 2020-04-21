@@ -32,6 +32,17 @@ list1.push(1)
 list1.push(7) 
 list1.printMiddle()
 
+# def reverseOrder(head):
+#   curr = head
+#   prev = None
+#   while curr.next is not None:
+#     next = curr.next
+#     curr.next = prev
+#     prev = curr
+#     curr = next
+#   curr.next = prev
+#   return curr.value
+
 # hackerrank problem 
 # count = 0
 

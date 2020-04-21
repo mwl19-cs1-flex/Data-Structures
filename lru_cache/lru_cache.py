@@ -77,6 +77,12 @@ class LRUCache:
     want to overwrite the old value associated with the key with
     the newly-specified value.
     """
+    # self.storage = dict()
+    # self.node = DoublyLinkedList()
+    # self.storage[(key, value)] self.node.value
+    # key = self.node.value
+    # value = self.storage[key]
+
     def set(self, key, value):
         # key already exists
         if key in self.storage:
